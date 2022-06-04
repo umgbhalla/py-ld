@@ -1,17 +1,32 @@
 import asyncio
 import time
+import os
+import requests
+
 
 
 def fetch(url):
     """ Make req and return result """
-    pass
+    started_at = time.monotonic()
+    response =  requests.get(url)
+    request_time = time.monotonic() - started_at
+    return {"status_code": response.status_code,"request_time":request_time}
 
-def worker(name,queue,results):
+async def worker(name,queue,results):
     """ A func to take and make req from a queue and perform the work then add result to results list"""
+    loop = asyncio.get_event_loop()
+    while True:
+        url = await queue.get()
+        if os.getenv("DEBUG"):
+            print(f"{name} - Fetching {url}")
+        future_result = loop.run_in_executor(None,fetch,url)
+        result = await future_result
+        results.append(result)
+        queue.task_done()
+        
     
-    pass
 
-async def distribute_work(url,requests,concurrency,result):
+async def distribute_work(url,requests,concurrency,results):
     """ Divide work into batches and collect final results"""
     queue =  asyncio.Queue()
     
@@ -20,7 +35,7 @@ async def distribute_work(url,requests,concurrency,result):
 
     tasks = []
     for i in range(concurrency):
-        task = asyncio.create_task(worker(f"worker-{i+1},queue,results"))
+        task = asyncio.create_task(worker(f"worker-{i+1}",queue,results))
         tasks.append(task)
     started_at =  time.monotonic()
     await queue.join()
@@ -34,10 +49,9 @@ async def distribute_work(url,requests,concurrency,result):
     )
 
 
-def duck(url,requests,concurrency):
+def assault(url,requests,concurrency):
     """Entry point to making requests"""
     results = []
     asyncio.run(distribute_work(url,requests,concurrency,results))
     print(results)
-    pass
 
