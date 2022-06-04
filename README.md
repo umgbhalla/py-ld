@@ -1,5 +1,11 @@
 # py-ld
 
+
+
+https://user-images.githubusercontent.com/67634565/172013559-f5e67566-6adb-47bd-8bcb-e185fb880c81.mp4
+
+
+
 ## setup dev
 
 ```bash
