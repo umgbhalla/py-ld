@@ -1,4 +1,18 @@
-# 0.1.0 (2022-06-04)
+# [0.2.0](https://github.com/umgbhalla/py-ld/compare/v0.1.0...v0.2.0) (2022-06-04)
+
+
+### Bug Fixes
+
+* **repo:** updated .gitignore ([3807e3b](https://github.com/umgbhalla/py-ld/commit/3807e3b683bce5381add0ff8f36520e16f3752fc))
+
+
+### Features
+
+* **base:** implemented buisness logic ([bf979ed](https://github.com/umgbhalla/py-ld/commit/bf979edf5d104dcfba5f4bd7b8fb14f137f722b0))
+
+
+
+# [0.1.0](https://github.com/umgbhalla/py-ld/compare/8fd4a963f06a46e46fbca7111854e525f8a3dd40...v0.1.0) (2022-06-04)
 
 
 ### Bug Fixes
