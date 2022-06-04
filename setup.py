@@ -13,7 +13,7 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'py-ld'
+NAME = 'assault'
 DESCRIPTION = 'My short description for my project.'
 URL = 'https://github.com/umgbhalla/py-ld'
 EMAIL = 'umg.bhalla88@gmail.com'
@@ -23,7 +23,7 @@ VERSION = '0.1.0'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    # 'requests', 'maya', 'records',
+    'click' , 'requests' # 'maya', 'records',
 ]
 
 # What packages are optional?
@@ -108,9 +108,9 @@ setup(
     # If your package is a single module, use this instead of 'packages':
     # py_modules=['mypackage'],
 
-    # entry_points={
-    #     'console_scripts': ['mycli=mymodule:cli'],
-    # },
+    entry_points={
+        'console_scripts': ['assault=assault.cli:cli'],
+    },
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
