@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/umgbhalla/py-ld/compare/v0.3.0...v0.4.0) (2022-06-04)
+
+
+### Features
+
+* **docs:** added cli demo ([8b40668](https://github.com/umgbhalla/py-ld/commit/8b4066879e22b0dee1c634af7c29ec2664f33de9))
+
+
+
 # [0.3.0](https://github.com/umgbhalla/py-ld/compare/v0.2.0...v0.3.0) (2022-06-04)
 
 
